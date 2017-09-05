@@ -5,7 +5,7 @@ import org.junit.*;
 /**
  * Created by Administrator on 04/09/2017.
  */
-public class understandingJUnit {
+public class UnderstandingJUnit {
     @BeforeClass
     public static void beforeClass(){
         System.out.println("BeforeClass");

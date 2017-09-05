@@ -1,9 +1,8 @@
-package Intermediate;
+package intermediate;
 
-import ExtentReportManager.*;
+import extentReportManager.*;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import org.apache.bcel.verifier.exc.AssertionViolatedException;
 import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 /**
  * Created by Administrator on 04/09/2017.
  */
-public class login {
+public class Login {
     private WebDriver webDriver;
     private static ExtentReportManager reportManager;
 
@@ -44,13 +43,13 @@ public class login {
         webDriver.findElement(By.name("password")).sendKeys("myUser");
         registerAndLogInUserTest.log(Status.INFO, "Submitting register form.");
         webDriver.findElement(By.name("FormsButton2")).click();
-        //login that user
-        registerAndLogInUserTest.log(Status.INFO, "Navigating to login form.");
+        //Login that user
+        registerAndLogInUserTest.log(Status.INFO, "Navigating to Login form.");
         webDriver.findElement(By.linkText("4. Login")).click();
-        registerAndLogInUserTest.log(Status.INFO, "Completing login form.");
+        registerAndLogInUserTest.log(Status.INFO, "Completing Login form.");
         webDriver.findElement(By.name("username")).sendKeys("myUser");
         webDriver.findElement(By.name("password")).sendKeys("myUser");
-        registerAndLogInUserTest.log(Status.INFO, "Submitting login form.");
+        registerAndLogInUserTest.log(Status.INFO, "Submitting Login form.");
         webDriver.findElement(By.name("FormsButton2")).click();
 
         registerAndLogInUserTest.log(Status.INFO, "Verifying that the user has been logged in.");

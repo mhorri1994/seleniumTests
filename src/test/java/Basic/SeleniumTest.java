@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 /**
  * Created by Administrator on 04/09/2017.
  */
-public class seleniumTest {
+public class SeleniumTest {
     WebDriver webDriver;
 
     @Before

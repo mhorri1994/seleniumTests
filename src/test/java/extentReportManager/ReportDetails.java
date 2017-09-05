@@ -1,4 +1,4 @@
-package ExtentReportManager;
+package extentReportManager;
 
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import lombok.Data;
