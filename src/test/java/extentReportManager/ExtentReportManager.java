@@ -46,6 +46,13 @@ public class ExtentReportManager {
         return tests.get(testName);
     }
 
+    public ExtentTest manualSetupTest(String testName){
+        Exception e = new Exception();
+        e.fillInStackTrace();
+        ExtentTest test = report.createTest(testName);
+        tests.put(testName,test);
+        return tests.get(testName);
+    }
     private ExtentHtmlReporter getHtmlReporter(ReportDetails reportDetails) {
         String filePath = reportDetails.getReportFilePath() + ".html";
         extentHtmlReporter = new ExtentHtmlReporter(filePath);
