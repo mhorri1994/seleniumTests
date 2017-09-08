@@ -12,6 +12,7 @@ import pages.shopping.RegisterPage;
 import sun.rmi.registry.RegistryImpl_Stub;
 import utils.SpreadsheetReader.SpreadSheetReader;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.List;
@@ -51,7 +52,7 @@ public class Shopping {
 
     @After
     public void cleaning(){
-//        webDriver.quit();
+        webDriver.quit();
     }
 
     @AfterClass
@@ -77,8 +78,14 @@ public class Shopping {
             }catch (TimeoutException e){
                 if(row.get(17).equals("fail"))
                     register.pass("User cannot be created, email already taken (PASS)");
-                    else
+                else {
                     register.log(Status.ERROR, "User cannot be created, email already taken (FAIL)");
+//                    try{
+//                        reportManager.addScreenShot("User #" + i, ScreenShot.take(webDriver, "Register Error"));
+//                    }catch (IOException f){
+//                        f.printStackTrace();
+//                    }
+                }
                 continue;
             }
             PageFactory.initElements(webDriver, RegisterPage.class);
