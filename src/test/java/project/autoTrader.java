@@ -28,6 +28,7 @@ public class autoTrader {
     private Actions builder;
     private static ExtentReportManager reportManager;
     private PageFactory pf = new PageFactory();
+    private boolean switchBrowser = false;
     @BeforeClass
     public static void init(){
         String loc = System.getProperty("user.dir");
@@ -36,7 +37,10 @@ public class autoTrader {
     }
     @Before
     public void setUp(){
-        webDriver = new ChromeDriver();
+        if(switchBrowser)
+            redoWebDriver("firefox");
+        else
+            redoWebDriver("chrome");
         builder = new Actions(webDriver);
         webDriver.navigate().to("http://www.autotrader.co.uk/");
     }
@@ -44,7 +48,7 @@ public class autoTrader {
 
     @After
     public void cleaning(){
-//        webDriver.quit();
+        webDriver.quit();
     }
 
     @AfterClass
